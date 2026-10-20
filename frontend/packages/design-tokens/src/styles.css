@@ -1,0 +1,22 @@
+:root {
+  --lj-color-primary: #165dff;
+  --lj-color-page: #f7f8fa;
+  --lj-color-surface: #ffffff;
+  --lj-color-text: #1d2129;
+  --lj-color-border: #e5e6eb;
+  --lj-font-family: MiSans, "Microsoft YaHei", sans-serif;
+  --lj-control-height: 32px;
+  --lj-table-row-height: 46px;
+  --lj-navigation-width: 224px;
+  --lj-header-height: 56px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--lj-color-text);
+  background: var(--lj-color-page);
+  font-family: var(--lj-font-family);
+}
+

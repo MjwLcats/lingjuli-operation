@@ -1,0 +1,31 @@
+# Operating system and IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Java
+**/target/
+*.log
+
+# Node.js
+**/node_modules/
+**/dist/
+**/.vite/
+**/playwright-report/
+**/test-results/
+
+# Python
+**/__pycache__/
+**/.pytest_cache/
+**/.venv/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+config/env/*.local.*
+config/env/.env.local
+*.pem
+*.key
+

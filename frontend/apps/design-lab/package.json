@@ -1,0 +1,17 @@
+{
+  "name": "@lingjuli/design-lab",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --workspace-root exec vite --config apps/design-lab/vite.config.ts",
+    "build": "pnpm --workspace-root exec vue-tsc -b apps/design-lab/tsconfig.json && pnpm --workspace-root exec vite build --config apps/design-lab/vite.config.ts",
+    "typecheck": "pnpm --workspace-root exec vue-tsc -b apps/design-lab/tsconfig.json",
+    "test": "pnpm --workspace-root exec vitest run"
+  },
+  "dependencies": {
+    "@arco-design/web-vue": "2.57.0",
+    "@lingjuli/design-tokens": "workspace:*",
+    "vue": "3.5.13"
+  }
+}
+

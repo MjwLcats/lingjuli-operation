@@ -1,0 +1,38 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: lingjuli-platform
+  config:
+    import:
+      - "optional:file:${LINGJULI_ENV_FILE:../config/env/.env.local}[.properties]"
+      - "optional:nacos:${spring.application.name}-${spring.profiles.active:local}.yml"
+  cloud:
+    nacos:
+      server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+      username: ${NACOS_USERNAME:}
+      password: ${NACOS_PASSWORD:}
+      config:
+        enabled: ${NACOS_CONFIG_ENABLED:false}
+        namespace: ${NACOS_NAMESPACE:lingjuli-local}
+        group: LINGJULI
+      discovery:
+        enabled: ${NACOS_DISCOVERY_ENABLED:false}
+        namespace: ${NACOS_NAMESPACE:lingjuli-local}
+        group: LINGJULI
+  datasource:
+    url: ${PLATFORM_DATASOURCE_URL:jdbc:mysql://${MYSQL_HOST:127.0.0.1}:${MYSQL_PORT:3306}/lingjuli_platform?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
+    username: ${PLATFORM_DATASOURCE_USERNAME:${MYSQL_ROOT_USERNAME:}}
+    password: ${PLATFORM_DATASOURCE_PASSWORD:${MYSQL_ROOT_PASSWORD:}}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    enabled: ${PLATFORM_FLYWAY_ENABLED:true}
+    locations: classpath:db/migration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+

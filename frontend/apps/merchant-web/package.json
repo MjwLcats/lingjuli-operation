@@ -1,0 +1,12 @@
+{
+  "name": "@lingjuli/merchant-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": { "dev": "pnpm --workspace-root exec vite --config apps/merchant-web/vite.config.ts", "build": "pnpm --workspace-root exec vue-tsc -b apps/merchant-web/tsconfig.json && pnpm --workspace-root exec vite build --config apps/merchant-web/vite.config.ts", "typecheck": "pnpm --workspace-root exec vue-tsc -b apps/merchant-web/tsconfig.json" },
+  "dependencies": {
+    "@arco-design/web-vue": "2.57.0",
+    "@lingjuli/design-tokens": "workspace:*",
+    "vue": "3.5.13"
+  }
+}
+

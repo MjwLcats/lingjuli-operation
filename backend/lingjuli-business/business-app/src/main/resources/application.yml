@@ -1,0 +1,28 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: lingjuli-business
+  config:
+    import: "optional:nacos:${spring.application.name}-${spring.profiles.active:local}.yml"
+  cloud:
+    nacos:
+      server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+      username: ${NACOS_USERNAME:}
+      password: ${NACOS_PASSWORD:}
+      config:
+        enabled: ${NACOS_CONFIG_ENABLED:false}
+        namespace: ${NACOS_NAMESPACE:lingjuli-local}
+        group: LINGJULI
+      discovery:
+        enabled: ${NACOS_DISCOVERY_ENABLED:false}
+        namespace: ${NACOS_NAMESPACE:lingjuli-local}
+        group: LINGJULI
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+

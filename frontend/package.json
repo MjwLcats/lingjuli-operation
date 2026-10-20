@@ -1,0 +1,21 @@
+{
+  "name": "lingjuli-frontend",
+  "private": true,
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "dev:design-lab": "pnpm --filter @lingjuli/design-lab dev",
+    "dev:platform-web": "pnpm --filter @lingjuli/platform-web dev",
+    "dev:merchant-web": "pnpm --filter @lingjuli/merchant-web dev",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "5.2.3",
+    "typescript": "5.7.3",
+    "vite": "6.1.0",
+    "vitest": "3.0.5",
+    "vue-tsc": "2.2.0"
+  }
+}
+

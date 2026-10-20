@@ -1,0 +1,45 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: lingjuli-iam
+  config:
+    import:
+      - "optional:file:${LINGJULI_ENV_FILE:../config/env/.env.local}[.properties]"
+      - "optional:nacos:${spring.application.name}-${spring.profiles.active:local}.yml"
+  cloud:
+    nacos:
+      server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+      username: ${NACOS_USERNAME:}
+      password: ${NACOS_PASSWORD:}
+      config:
+        enabled: ${NACOS_CONFIG_ENABLED:false}
+        namespace: ${NACOS_NAMESPACE:lingjuli-local}
+        group: LINGJULI
+      discovery:
+        enabled: ${NACOS_DISCOVERY_ENABLED:false}
+        namespace: ${NACOS_NAMESPACE:lingjuli-local}
+        group: LINGJULI
+  datasource:
+    url: ${IAM_DATASOURCE_URL:jdbc:mysql://${MYSQL_HOST:127.0.0.1}:${MYSQL_PORT:3306}/lingjuli_iam?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
+    username: ${IAM_DATASOURCE_USERNAME:${MYSQL_ROOT_USERNAME:}}
+    password: ${IAM_DATASOURCE_PASSWORD:${MYSQL_ROOT_PASSWORD:}}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    enabled: ${IAM_FLYWAY_ENABLED:true}
+    locations: classpath:db/migration
+
+sa-token:
+  token-name: satoken
+  timeout: 2592000
+  is-read-header: true
+  is-read-body: false
+  is-read-cookie: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+

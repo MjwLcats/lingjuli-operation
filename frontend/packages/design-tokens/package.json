@@ -1,0 +1,9 @@
+{
+  "name": "@lingjuli/design-tokens",
+  "version": "1.0.0",
+  "private": true,
+  "exports": {
+    "./styles.css": "./src/styles.css"
+  }
+}
+
